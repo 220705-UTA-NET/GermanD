@@ -17,15 +17,25 @@ public class Board
     private readonly Roles[][] _board; // 2D array
     private int _turn; // keeps track of whose turn it is
 
-    public Board() 
+    public Board() // constructor
     {
+        _board = new Roles[3][]; 
+        for (var i = 0; i < 3; i++)
+        {
+            _board[i] = new Roles[3]; // creates a 3x3 array
+        }
+        _turn = 0; // starts the game with player 1's turn
+    }
+
+    // what is a public event? A public event is a delegate that can be used to call methods in other classes.
+    /*{
         _board = new Roles[3][];
         _board[0] = new Roles[3];
         _board[1] = new Roles[3];
         _board[2] = new Roles[3];
 
         _turn = 0;
-    }
+    } */
 
     public void MakeMove(int x, int y) 
     {
@@ -37,7 +47,7 @@ public class Board
 
         var role = GetCurrentExpectedRole(); // get the role that the player is expected to play
         
-        _board[y][x] = role; // set the board at the given position to the expected role
+        _board[x][y] = role; // set the board at the given position to the expected role
         
         HandlePostMove(role); // handle the post move logic
     }
@@ -68,7 +78,7 @@ public class Board
 
     private bool IsPointOccupied(int x, int y) => _board[y][x] != Roles.None; // checks if the point is occupied
 
-    private bool IsGameOver() => IsTie() || IsVictory(); // checks if the game is over
+    private bool IsGameOver() => Console.ReadLine("over") || IsTie() || IsVictory(); // checks if the game is over
 
     private bool IsTie() => _turn > 8 && !IsVictory(); // checks if the game is a tie
 
@@ -115,7 +125,7 @@ public class Board
     }
 
     private bool IsDiagonalVictory() =>
-         (
+        _board[1][1] != Roles.None && (
             (_board[0][0] == _board[1][1] && _board[1][1] == _board[2][2]) ||
             (_board[0][2] == _board[1][1] && _board[1][1] == _board[2][0])
         );

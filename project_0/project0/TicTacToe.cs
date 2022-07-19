@@ -55,3 +55,46 @@ public class TicTacToe
             }
     }
 }
+
+/*     private (int, int) AskForMove()
+    {
+        for (var i = 0; ; i++)
+        {
+
+
+
+
+            //try
+            //{
+
+            //   Console.WriteLine("Enter Column then Row to select your move.");
+            //   var input = Console.ReadLine().Split(" ");
+            //   var x = int.Parse(input[0]);
+            //   var y = int.Parse(input[1]);
+            var x = -1;
+            var y = -1;
+            int c = 0;
+            do
+            {
+
+                Console.WriteLine("Enter Column then Row to select your move.");
+                var input = Console.ReadLine().Split(" ");
+                if (!int.TryParse(input[0], out int temp) || !int.TryParse(input[0], out int temp1))
+                {
+                    c++;
+                    continue;
+                }
+                x = int.Parse(input[0]);
+                y = int.Parse(input[1]);
+                if (c > 3)
+                    Console.WriteLine("Why must you make me suffer?");
+                else
+                    Console.WriteLine("Nope");
+                c++;
+            } while ((x < 0 || x > 2) || (y < 0 || y > 2));
+            //do { }
+            //while ((x < 0 || x > 2) && ((y < 0) || (y > 2))
+
+            return (x, y);
+        }
+    } */
