@@ -4,6 +4,6 @@ namespace MVC.DTOs;
 
 public class OrderItem
 {
-    public Item Item { get; set; }
-    public uint Quantity { get; set; }
+    public Item? Item { get; set; } // the item ordered
+    public uint Quantity { get; set; } // the quantity of the ordered items
 }

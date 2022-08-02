@@ -7,18 +7,16 @@ public static class Program
     public static void Main(string[] args)
     {
         //        Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-ES", false);
-        var shopService = new ShopService();
 
-        var incomingOrder = new OrderTaker(shopService)
-            .TakeOrder();
+       
+        var shopService = new ShopService(new HttpClient()); // create a shop service instance using the HttpClient class
 
-        Console.WriteLine(shopService.PlaceOrder(incomingOrder));
+        var incomingOrder = new OrderTaker(shopService) // create an order taker instance using the shop service
+            .TakeOrder(); // take the order
+
+        Console.WriteLine(shopService.PlaceOrder(incomingOrder)); // prints out the order
     }
 }
-
-
-
-
 
 
 

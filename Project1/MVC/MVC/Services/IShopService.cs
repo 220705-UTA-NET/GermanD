@@ -3,8 +3,8 @@ using MVC.Models;
 
 namespace MVC.Services;
 
-public interface IShopService
+public interface IShopService 
 {
-    IEnumerable<Menu> GetMenus();
-    Order PlaceOrder(IncomingOrder order);
+    IEnumerable<Menu> GetMenus(); // returns all menus
+    Order PlaceOrder(IncomingOrder order); // returns the order
 }

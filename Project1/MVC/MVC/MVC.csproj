@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Sharprompt" Version="2.4.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
 </Project>
